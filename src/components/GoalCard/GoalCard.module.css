@@ -1,0 +1,81 @@
+.card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0px 4px 22px rgba(159, 159, 159, 0.15);
+}
+
+.progressBar {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #f1f5f9;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.progressFillOnTrack {
+  background-color: #22c55e;
+}
+
+.progressFillInProgress {
+  background-color: #f97316;
+}
+
+.progressFillBehind {
+  background-color: #ef4444;
+}
+
+.progressFillCompleted {
+  background-color: #8b5cf6;
+}
+
+.actionButton {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.editButton {
+  background-color: #fff7ed;
+  color: #f97316;
+  border-color: #fed7aa;
+}
+
+.editButton:hover {
+  background-color: #ffedd5;
+  border-color: #fdba74;
+}
+
+.completeButton {
+  background-color: #f0fdf4;
+  color: #22c55e;
+  border-color: #bbf7d0;
+}
+
+.completeButton:hover {
+  background-color: #dcfce7;
+  border-color: #86efac;
+}
+
+.removeButton {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+.removeButton:hover {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+}

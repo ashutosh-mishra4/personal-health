@@ -1,15 +1,9 @@
 import { MantineProvider } from '@mantine/core';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './src/components/Layout/Layout';
-import FitnessDashboard from './src/components/FitnessDashboard/FitnessDashboard';
-import WorkoutPage from './src/components/WorkoutPage/WorkoutPage';
-import DietPlanPage from './src/components/DietPlanPage/DietPlanPage';
 import GoalsPage from './src/components/GoalsPage/GoalsPage';
-import { mockRootProps as dashboardMockData } from './src/fitnessDashboardMockData';
-import { mockRootProps as workoutMockData } from './src/workoutMockData';
-import { mockRootProps as dietPlanMockData } from './src/dietPlanMockData';
-import { mockRootProps as goalsMockData } from './src/goalsMockData';
 import { Goal } from './src/types';
+import { mockRootProps } from './src/goalsMockData';
 import theme from './src/theme';
 
 function App() {
@@ -34,35 +28,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route 
-            path="/" 
-            element={
-              <Layout>
-                <FitnessDashboard {...dashboardMockData} />
-              </Layout>
-            } 
-          />
-          <Route 
-            path="/workout" 
-            element={
-              <Layout>
-                <WorkoutPage {...workoutMockData} />
-              </Layout>
-            } 
-          />
-          <Route 
-            path="/diet" 
-            element={
-              <Layout>
-                <DietPlanPage {...dietPlanMockData} />
-              </Layout>
-            } 
-          />
-          <Route 
             path="/goals" 
             element={
               <Layout>
                 <GoalsPage 
-                  {...goalsMockData}
+                  {...mockRootProps}
                   onAddGoal={handleAddGoal}
                   onEditGoal={handleEditGoal}
                   onMarkComplete={handleMarkComplete}
@@ -76,7 +46,7 @@ function App() {
             element={
               <Layout>
                 <GoalsPage 
-                  {...goalsMockData}
+                  {...mockRootProps}
                   onAddGoal={handleAddGoal}
                   onEditGoal={handleEditGoal}
                   onMarkComplete={handleMarkComplete}

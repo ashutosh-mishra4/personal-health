@@ -1,0 +1,37 @@
+.section {
+  margin-bottom: 32px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.addButton {
+  background-color: #f97316;
+  color: white;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: #ea580c;
+  transform: translateY(-1px);
+}
+
+.goalsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 32px;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+}

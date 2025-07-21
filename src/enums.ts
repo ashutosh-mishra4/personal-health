@@ -64,3 +64,38 @@ export enum NutrientType {
   CARBS = 'carbs',
   FATS = 'fats'
 }
+
+// Goal related enums for the fitness application
+
+export enum GoalCategory {
+  CARDIO = 'cardio',
+  STRENGTH = 'strength', 
+  FLEXIBILITY = 'flexibility',
+  NUTRITION = 'nutrition'
+}
+
+export enum GoalPriority {
+  HIGH = 'high',
+  MEDIUM = 'medium',
+  LOW = 'low'
+}
+
+export enum GoalStatus {
+  NOT_STARTED = 'not_started',
+  IN_PROGRESS = 'in_progress',
+  COMPLETED = 'completed',
+  BEHIND = 'behind',
+  ON_TRACK = 'on_track'
+}
+
+export enum GoalFrequency {
+  DAILY = 'daily',
+  WEEKLY = 'weekly',
+  MONTHLY = 'monthly',
+  CUSTOM = 'custom'
+}
+
+export enum StreakType {
+  DAILY = 'daily',
+  WEEKLY = 'weekly'
+}

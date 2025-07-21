@@ -1,7 +1,5 @@
 import { useState, useMemo } from 'react';
-import { AppShell, Stack, Group, Text, Flex } from '@mantine/core';
-import Sidebar from '../Sidebar/Sidebar';
-import Header from '../Header/Header';
+import { Stack, Group, Text, Flex } from '@mantine/core';
 import WorkoutFilters from '../WorkoutFilters/WorkoutFilters';
 import WorkoutGrid from '../WorkoutGrid/WorkoutGrid';
 import WorkoutSessionModal from '../WorkoutSessionModal/WorkoutSessionModal';
@@ -100,18 +98,7 @@ const WorkoutPage = ({ workouts, currentWorkoutSession, filters: initialFilters,
   };
 
   return (
-    <AppShell
-      navbar={{ width: 240, breakpoint: 'sm' }}
-      className={classes.shell}
-    >
-      <Sidebar 
-        currentPage={currentPage}
-      />
-      
-      <AppShell.Main className={classes.main}>
-        <Header user={{ name: "User", greeting: "Good Morning" }} />
-        
-        <Stack gap={24} className={classes.content}>
+    <Stack gap={24} className={classes.content}>
           <Group justify="space-between" align="center">
             <Text fz={24} fw={700} c="#1e293b">Workouts</Text>
           </Group>
@@ -145,9 +132,6 @@ const WorkoutPage = ({ workouts, currentWorkoutSession, filters: initialFilters,
               onStartWorkout={handleStartWorkout}
             />
           </Flex>
-        </Stack>
-      </AppShell.Main>
-
       {workoutSession && (
         <WorkoutSessionModal
           session={workoutSession}
@@ -156,7 +140,7 @@ const WorkoutPage = ({ workouts, currentWorkoutSession, filters: initialFilters,
           onCompleteExercise={handleCompleteExercise}
         />
       )}
-    </AppShell>
+    </Stack>
   );
 };
 

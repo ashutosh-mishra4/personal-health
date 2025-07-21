@@ -11,7 +11,8 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   const currentPage = location.pathname === '/workout' ? 'workout' : 
-                     location.pathname === '/diet' ? 'diet' : 'dashboard';
+                     location.pathname === '/diet' ? 'diet' : 
+                     location.pathname === '/goals' ? 'goals' : 'dashboard';
 
   return (
     <AppShell

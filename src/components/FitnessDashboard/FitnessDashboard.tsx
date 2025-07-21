@@ -1,6 +1,4 @@
-import { AppShell, Group } from '@mantine/core';
-import Sidebar from '../Sidebar/Sidebar';
-import Header from '../Header/Header';
+import { Group } from '@mantine/core';
 import MainContent from '../MainContent/MainContent';
 import RightPanel from '../RightPanel/RightPanel';
 import classes from './FitnessDashboard.module.css';
@@ -55,44 +53,27 @@ interface FitnessDashboardProps {
 }
 
 const FitnessDashboard = ({ 
-  user, 
   activities, 
   goalProgress, 
   foodEntries, 
   schedule, 
   goals, 
-  premiumOffer,
-  currentPage,
-  onNavigateToWorkout
+  premiumOffer
 }: FitnessDashboardProps) => {
   return (
-    <AppShell
-      navbar={{ width: 240, breakpoint: 'sm' }}
-      className={classes.shell}
-    >
-      <Sidebar 
-        currentPage={currentPage}
-        onNavigateToWorkout={onNavigateToWorkout}
+    <Group gap={0} align="flex-start" className={classes.content}>
+      <MainContent 
+        activities={activities}
+        goalProgress={goalProgress}
+        foodEntries={foodEntries}
       />
       
-      <AppShell.Main className={classes.main}>
-        <Header user={user} />
-        
-        <Group gap={0} align="flex-start" className={classes.content}>
-          <MainContent 
-            activities={activities}
-            goalProgress={goalProgress}
-            foodEntries={foodEntries}
-          />
-          
-          <RightPanel 
-            schedule={schedule}
-            goals={goals}
-            premiumOffer={premiumOffer}
-          />
-        </Group>
-      </AppShell.Main>
-    </AppShell>
+      <RightPanel 
+        schedule={schedule}
+        goals={goals}
+        premiumOffer={premiumOffer}
+      />
+    </Group>
   );
 };
 

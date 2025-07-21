@@ -91,3 +91,45 @@ export interface PrepItem {
   completed: boolean;
   icon: string;
 }
+
+// Goals page types
+export interface GoalsPageProps {
+  goals: Goal[];
+  topPriorities: TopPriorityGoal[];
+  streaks: GoalStreak[];
+  onAddGoal?: (category: string) => void;
+  onEditGoal?: (goal: Goal) => void;
+  onMarkComplete?: (goalId: number) => void;
+  onRemoveGoal?: (goalId: number) => void;
+}
+
+export interface Goal {
+  id: number;
+  name: string;
+  targetMetric: string;
+  category: string;
+  priority: string;
+  status: string;
+  frequency: string;
+  customFrequency: string | null;
+  deadline: string | null;
+  currentProgress: number;
+  targetProgress: number;
+  createdAt: string;
+}
+
+export interface TopPriorityGoal {
+  id: number;
+  name: string;
+  currentProgress: number;
+  targetProgress: number;
+  status: string;
+}
+
+export interface GoalStreak {
+  id: number;
+  goalName: string;
+  currentStreak: number;
+  bestStreak: number;
+  type: string;
+}

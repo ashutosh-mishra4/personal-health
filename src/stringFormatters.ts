@@ -1,4 +1,4 @@
-import { WorkoutType, DifficultyLevel, EquipmentType, MealType, DietaryTag, NutrientType } from './enums';
+import { WorkoutType, DifficultyLevel, EquipmentType, MealType, DietaryTag, NutrientType, GoalCategory, GoalPriority, GoalStatus, GoalFrequency, StreakType } from './enums';
 
 export const formatDuration = (minutes: number): string => {
   if (minutes < 60) {
@@ -119,4 +119,78 @@ export const formatNutrient = (amount: number, type: NutrientType): string => {
 
 export const formatMealTime = (time: string): string => {
   return time;
+};
+
+export const formatGoalCategory = (category: GoalCategory): string => {
+  switch (category) {
+    case GoalCategory.CARDIO:
+      return 'Cardio';
+    case GoalCategory.STRENGTH:
+      return 'Strength';
+    case GoalCategory.FLEXIBILITY:
+      return 'Flexibility';
+    case GoalCategory.NUTRITION:
+      return 'Nutrition';
+    default:
+      return 'Unknown';
+  }
+};
+
+export const formatGoalPriority = (priority: GoalPriority): string => {
+  switch (priority) {
+    case GoalPriority.HIGH:
+      return 'High Priority';
+    case GoalPriority.MEDIUM:
+      return 'Medium Priority';
+    case GoalPriority.LOW:
+      return 'Low Priority';
+    default:
+      return 'Unknown';
+  }
+};
+
+export const formatGoalStatus = (status: GoalStatus): string => {
+  switch (status) {
+    case GoalStatus.NOT_STARTED:
+      return 'Not Started';
+    case GoalStatus.IN_PROGRESS:
+      return 'In Progress';
+    case GoalStatus.COMPLETED:
+      return 'Completed';
+    case GoalStatus.BEHIND:
+      return 'Behind';
+    case GoalStatus.ON_TRACK:
+      return 'On Track';
+    default:
+      return 'Unknown';
+  }
+};
+
+export const formatGoalFrequency = (frequency: GoalFrequency, customValue?: string): string => {
+  switch (frequency) {
+    case GoalFrequency.DAILY:
+      return 'Daily';
+    case GoalFrequency.WEEKLY:
+      return 'Weekly';
+    case GoalFrequency.MONTHLY:
+      return 'Monthly';
+    case GoalFrequency.CUSTOM:
+      return customValue || 'Custom';
+    default:
+      return 'Unknown';
+  }
+};
+
+export const formatProgressPercentage = (current: number, target: number): string => {
+  const percentage = Math.round((current / target) * 100);
+  return `${percentage}%`;
+};
+
+export const formatProgressFraction = (current: number, target: number): string => {
+  return `${current}/${target}`;
+};
+
+export const formatStreakCount = (count: number, type: StreakType): string => {
+  const unit = type === StreakType.DAILY ? 'day' : 'week';
+  return count === 1 ? `${count} ${unit}` : `${count} ${unit}s`;
 };

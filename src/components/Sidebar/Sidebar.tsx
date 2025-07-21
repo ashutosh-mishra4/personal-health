@@ -61,7 +61,9 @@ const Sidebar = ({ currentPage }: SidebarProps) => {
           <NavLink
             label="Goals"
             leftSection={<ShieldCheck size={20} />}
-            className={classes.link}
+            active={isActive('/goals')}
+            className={isActive('/goals') ? classes.activeLink : classes.link}
+            onClick={() => handleNavigation('/goals')}
           />
           <NavLink
             label="My Schedule"
