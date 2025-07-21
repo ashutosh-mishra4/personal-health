@@ -99,3 +99,18 @@ export enum StreakType {
   DAILY = 'daily',
   WEEKLY = 'weekly'
 }
+
+// Activity level enums for streak visualization
+export enum ActivityLevel {
+  NONE = 'none',
+  LOW = 'low', 
+  MEDIUM = 'medium',
+  HIGH = 'high'
+}
+
+export enum StreakFilterType {
+  ALL = 'all',
+  WORKOUTS = 'workouts',
+  GOALS = 'goals', 
+  DIET = 'diet'
+}

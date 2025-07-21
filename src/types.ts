@@ -133,3 +133,42 @@ export interface GoalStreak {
   bestStreak: number;
   type: string;
 }
+
+// Streaks page types
+export interface StreaksPageProps {
+  currentStreak: number;
+  longestStreak: number;
+  missedDaysThisMonth: number;
+  selectedFilter: string;
+  activityData: DayActivity[];
+  onFilterChange?: (filter: string) => void;
+  onActivityUpdate?: (data: DayActivity[]) => void;
+}
+
+export interface DayActivity {
+  date: string;
+  workouts: number;
+  goals: number;
+  diet: number;
+  level: string;
+}
+
+export interface StreakSummary {
+  currentStreak: number;
+  longestStreak: number;
+  missedDaysThisMonth: number;
+}
+
+// Store types (global state data)
+export interface StreakStoreTypes {
+  activityData: DayActivity[];
+  selectedFilter: string;
+  streakSummary: StreakSummary;
+  isLoading: boolean;
+}
+
+// Query types (API response data)  
+export interface StreakQueryTypes {
+  activityData: DayActivity[];
+  streakSummary: StreakSummary;
+}

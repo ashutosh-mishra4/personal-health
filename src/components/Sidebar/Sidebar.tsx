@@ -8,6 +8,7 @@ import {
   ShieldCheck, 
   CalendarDays, 
   ChartColumnIncreasing,
+  Flame,
   CircleHelp,
   ArrowLeftFromLine
 } from 'lucide-react';
@@ -69,6 +70,13 @@ const Sidebar = ({ currentPage }: SidebarProps) => {
             label="My Schedule"
             leftSection={<CalendarDays size={20} />}
             className={classes.link}
+          />
+          <NavLink
+            label="Streaks"
+            leftSection={<Flame size={20} />}
+            active={isActive('/streaks')}
+            className={isActive('/streaks') ? classes.activeLink : classes.link}
+            onClick={() => handleNavigation('/streaks')}
           />
           <NavLink
             label="Progress"

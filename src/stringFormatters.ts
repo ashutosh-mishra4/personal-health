@@ -1,4 +1,4 @@
-import { WorkoutType, DifficultyLevel, EquipmentType, MealType, DietaryTag, NutrientType, GoalCategory, GoalPriority, GoalStatus, GoalFrequency, StreakType } from './enums';
+import { WorkoutType, DifficultyLevel, EquipmentType, MealType, DietaryTag, NutrientType, GoalCategory, GoalPriority, GoalStatus, GoalFrequency, StreakType, ActivityLevel } from './enums';
 
 export const formatDuration = (minutes: number): string => {
   if (minutes < 60) {
@@ -193,4 +193,108 @@ export const formatProgressFraction = (current: number, target: number): string 
 export const formatStreakCount = (count: number, type: StreakType): string => {
   const unit = type === StreakType.DAILY ? 'day' : 'week';
   return count === 1 ? `${count} ${unit}` : `${count} ${unit}s`;
+};
+
+// String formatting functions for streak data
+export const formatStreakDays = (days: number): string => {
+  return `${days} ${days === 1 ? 'day' : 'days'}`;
+};
+
+export const formatDate = (date: Date): string => {
+  return date.toLocaleDateString('en-US', { 
+    weekday: 'long',
+    year: 'numeric', 
+    month: 'long',
+    day: 'numeric'
+  });
+};
+
+export const formatMonthYear = (date: Date): string => {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric'
+  });
+};
+
+export const formatActivityLevel = (level: ActivityLevel): string => {
+  switch (level) {
+    case ActivityLevel.NONE:
+      return 'No activity';
+    case ActivityLevel.LOW:
+      return 'Low activity';
+    case ActivityLevel.MEDIUM:
+      return 'Medium activity';
+    case ActivityLevel.HIGH:
+      return 'High activity';
+    default:
+      return 'No activity';
+  }
+};
+
+// Utility functions for streak calculations
+export const calculateStreaks = (activityData: any[], filterType: string) => {
+  const today = new Date();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
+  
+  // Sort data by date
+  const sortedData = [...activityData].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  
+  // Filter activity based on type
+  const getActivityCount = (day: any) => {
+    switch (filterType) {
+      case 'workouts':
+        return day.workouts;
+      case 'goals':
+        return day.goals;
+      case 'diet':
+        return day.diet;
+      case 'all':
+      default:
+        return day.workouts + day.goals + day.diet;
+    }
+  };
+  
+  // Calculate current streak (from today backwards)
+  let currentStreak = 0;
+  for (let i = sortedData.length - 1; i >= 0; i--) {
+    const day = sortedData[i];
+    const dayDate = new Date(day.date);
+    
+    if (dayDate > today) continue; // Skip future dates
+    
+    if (getActivityCount(day) > 0) {
+      currentStreak++;
+    } else {
+      break;
+    }
+  }
+  
+  // Calculate longest streak
+  let longestStreak = 0;
+  let tempStreak = 0;
+  
+  for (const day of sortedData) {
+    if (getActivityCount(day) > 0) {
+      tempStreak++;
+      longestStreak = Math.max(longestStreak, tempStreak);
+    } else {
+      tempStreak = 0;
+    }
+  }
+  
+  // Calculate missed days this month
+  const missedDaysThisMonth = sortedData.filter(day => {
+    const dayDate = new Date(day.date);
+    return dayDate.getMonth() === currentMonth && 
+           dayDate.getFullYear() === currentYear && 
+           dayDate <= today &&
+           getActivityCount(day) === 0;
+  }).length;
+  
+  return {
+    currentStreak,
+    longestStreak,
+    missedDaysThisMonth
+  };
 };

@@ -1,0 +1,10 @@
+.summaryContainer {
+  flex-wrap: wrap;
+}
+
+.summaryCard {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  min-width: 200px;
+  flex: 1;
+}
