@@ -1,0 +1,22 @@
+.card {
+  background: linear-gradient(149.71deg, rgba(124,109,215,1) 4.71%, rgba(196,186,255,1) 110.44%);
+}
+
+.title {
+  max-width: 219px;
+}
+
+.upgradeButton {
+  background-color: #f97316;
+  color: white;
+  border: none;
+  width: max-content;
+}
+
+.upgradeButton:hover {
+  background-color: #ea580c;
+}
+
+.promoImage {
+  flex-shrink: 0;
+}

@@ -1,0 +1,14 @@
+.viewAll {
+  cursor: pointer;
+}
+
+.viewAll:hover {
+  opacity: 0.8;
+}
+
+.targetBadge {
+  background-color: rgba(249, 115, 22, 0.1);
+  padding: 5px;
+  border-radius: 4px;
+  color: #f97316 !important;
+}

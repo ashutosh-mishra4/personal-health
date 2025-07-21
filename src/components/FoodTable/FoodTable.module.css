@@ -1,0 +1,32 @@
+.header {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.headerCell {
+  text-align: left;
+}
+
+.row {
+  background-color: white;
+  box-shadow: 0px 4px 22px rgba(159, 159, 159, 0.15);
+}
+
+.rowContent {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.foodCell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cell {
+  text-align: left;
+}

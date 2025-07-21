@@ -1,0 +1,23 @@
+.header {
+  padding: 24px 32px;
+  border-bottom: 1px solid #cbd5e1;
+  background-color: white;
+}
+
+.searchInput {
+  background-color: #f8fafb;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+}
+
+.searchInput input {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.searchInput input::placeholder {
+  color: #64748b;
+}

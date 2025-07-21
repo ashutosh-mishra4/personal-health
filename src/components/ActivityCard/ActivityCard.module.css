@@ -1,0 +1,43 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.workoutCard {
+  background-color: var(--mantine-color-cyan-6) !important;
+  background-image: url('/images/workout-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.caloriesCard {
+  background-color: var(--mantine-color-orange-6) !important;
+  background-image: url('/images/calories-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.stepsCard {
+  background-color: var(--mantine-color-purple-6) !important;
+  background-image: url('/images/steps-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.backgroundImage {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+}
