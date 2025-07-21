@@ -1,0 +1,13 @@
+.filtersContainer {
+  background: white;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+.searchInput {
+  min-width: 300px;
+}
+
+.categoryTabs {
+  width: 100%;
+}

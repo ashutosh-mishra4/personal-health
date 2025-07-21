@@ -50,6 +50,8 @@ interface FitnessDashboardProps {
     description: string;
     image: string;
   };
+  currentPage?: string;
+  onNavigateToWorkout?: () => void;
 }
 
 const FitnessDashboard = ({ 
@@ -59,14 +61,19 @@ const FitnessDashboard = ({
   foodEntries, 
   schedule, 
   goals, 
-  premiumOffer 
+  premiumOffer,
+  currentPage,
+  onNavigateToWorkout
 }: FitnessDashboardProps) => {
   return (
     <AppShell
       navbar={{ width: 240, breakpoint: 'sm' }}
       className={classes.shell}
     >
-      <Sidebar />
+      <Sidebar 
+        currentPage={currentPage}
+        onNavigateToWorkout={onNavigateToWorkout}
+      />
       
       <AppShell.Main className={classes.main}>
         <Header user={user} />

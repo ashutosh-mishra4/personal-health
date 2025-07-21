@@ -1,0 +1,32 @@
+.modal {
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timerSection {
+  text-align: center;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.timer {
+  margin: 20px 0;
+}
+
+.exerciseList {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.exerciseItem {
+  padding: 8px;
+  border-radius: 6px;
+  background: white;
+}

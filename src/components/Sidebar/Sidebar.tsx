@@ -1,8 +1,9 @@
 import { AppShell, Text, Stack, Group } from '@mantine/core';
 import { NavLink } from '@mantine/core';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   LayoutDashboard, 
-  ScanBarcode, 
+  Dumbbell, 
   BellMinus, 
   ShieldCheck, 
   CalendarDays, 
@@ -12,12 +13,26 @@ import {
 } from 'lucide-react';
 import classes from './Sidebar.module.css';
 
-const Sidebar = () => {
+interface SidebarProps {
+  currentPage?: string;
+}
+
+const Sidebar = ({ currentPage }: SidebarProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+  
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
   return (
     <AppShell.Navbar className={classes.navbar}>
       <Stack gap={24} h="100%">
         <Group gap={16} className={classes.brand}>
-          <ScanBarcode size={24} color="#f97316" />
+          <Dumbbell size={24} color="#f97316" />
           <Text fw={800} fz={18} c="#f97316">Fitness</Text>
         </Group>
         
@@ -25,13 +40,16 @@ const Sidebar = () => {
           <NavLink
             label="Overview"
             leftSection={<LayoutDashboard size={20} />}
-            active
-            className={classes.activeLink}
+            active={isActive('/')}
+            className={isActive('/') ? classes.activeLink : classes.link}
+            onClick={() => handleNavigation('/')}
           />
           <NavLink
             label="Workout"
-            leftSection={<ScanBarcode size={20} />}
-            className={classes.link}
+            leftSection={<Dumbbell size={20} />}
+            active={isActive('/workout')}
+            className={isActive('/workout') ? classes.activeLink : classes.link}
+            onClick={() => handleNavigation('/workout')}
           />
           <NavLink
             label="Diet Plan"

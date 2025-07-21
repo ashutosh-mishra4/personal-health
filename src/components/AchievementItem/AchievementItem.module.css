@@ -1,0 +1,10 @@
+.item {
+  padding: 8px;
+  border-radius: 6px;
+  background: #f8fafc;
+  transition: background-color 0.2s ease;
+}
+
+.item:hover {
+  background-color: var(--mantine-color-orangeLight-0);
+}

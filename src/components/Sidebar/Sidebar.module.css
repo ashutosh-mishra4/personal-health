@@ -31,7 +31,7 @@
 }
 
 .link:hover {
-  background-color: #f8fafc;
+  background-color: var(--mantine-color-orangeLight-0) !important;
 }
 
 .link .mantine-NavLink-label {
@@ -55,7 +55,7 @@
 }
 
 .logoutLink:hover {
-  background-color: #f8fafc;
+  background-color: var(--mantine-color-orangeLight-0) !important;
 }
 
 .logoutLink .mantine-NavLink-label {

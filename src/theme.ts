@@ -3,6 +3,7 @@ import { createTheme, colorsTuple } from '@mantine/core';
 const theme = createTheme({
   colors: {
     orange: colorsTuple('#f97316'),
+    orangeLight: colorsTuple('#fff7ed'),
     cyan: colorsTuple('#06b6d4'),
     purple: colorsTuple('#8b5cf6'),
     slate: colorsTuple('#475569'),
