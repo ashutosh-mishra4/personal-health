@@ -1,0 +1,15 @@
+.container {
+  padding: 24px 32px;
+  max-width: 1400px;
+  margin-top: 50px;
+  margin-left: 35px;
+  align-items: flex-start;
+}
+
+.mainContent {
+  min-width: 0;
+}
+
+.rightPanel {
+  flex-shrink: 0;
+}

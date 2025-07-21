@@ -37,3 +37,30 @@ export enum SortOption {
   NAME_ASC = 'name_asc',
   NAME_DESC = 'name_desc'
 }
+
+// Diet related enums for the fitness application
+
+export enum MealType {
+  BREAKFAST = 'breakfast',
+  LUNCH = 'lunch',
+  DINNER = 'dinner',
+  SNACKS = 'snacks'
+}
+
+export enum DietaryTag {
+  HIGH_PROTEIN = 'high_protein',
+  LOW_CARB = 'low_carb',
+  VEGAN = 'vegan',
+  KETO = 'keto',
+  GLUTEN_FREE = 'gluten_free',
+  DAIRY_FREE = 'dairy_free',
+  VEGETARIAN = 'vegetarian',
+  PALEO = 'paleo'
+}
+
+export enum NutrientType {
+  CALORIES = 'calories',
+  PROTEIN = 'protein',
+  CARBS = 'carbs',
+  FATS = 'fats'
+}

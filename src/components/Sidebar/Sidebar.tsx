@@ -54,7 +54,9 @@ const Sidebar = ({ currentPage }: SidebarProps) => {
           <NavLink
             label="Diet Plan"
             leftSection={<BellMinus size={20} />}
-            className={classes.link}
+            active={isActive('/diet')}
+            className={isActive('/diet') ? classes.activeLink : classes.link}
+            onClick={() => handleNavigation('/diet')}
           />
           <NavLink
             label="Goals"

@@ -1,0 +1,10 @@
+.card {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  height: fit-content;
+}
+
+.progress {
+  height: 8px;
+}

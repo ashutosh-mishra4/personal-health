@@ -1,4 +1,4 @@
-import { WorkoutType, DifficultyLevel, EquipmentType } from './enums';
+import { WorkoutType, DifficultyLevel, EquipmentType, MealType, DietaryTag, NutrientType } from './enums';
 
 export const formatDuration = (minutes: number): string => {
   if (minutes < 60) {
@@ -66,4 +66,57 @@ export const formatTimer = (seconds: number): string => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
   return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+};
+
+export const formatMealType = (mealType: MealType): string => {
+  switch (mealType) {
+    case MealType.BREAKFAST:
+      return 'Breakfast';
+    case MealType.LUNCH:
+      return 'Lunch';
+    case MealType.DINNER:
+      return 'Dinner';
+    case MealType.SNACKS:
+      return 'Snacks';
+    default:
+      return 'Unknown';
+  }
+};
+
+export const formatDietaryTag = (tag: DietaryTag): string => {
+  switch (tag) {
+    case DietaryTag.HIGH_PROTEIN:
+      return 'High Protein';
+    case DietaryTag.LOW_CARB:
+      return 'Low Carb';
+    case DietaryTag.VEGAN:
+      return 'Vegan';
+    case DietaryTag.KETO:
+      return 'Keto';
+    case DietaryTag.GLUTEN_FREE:
+      return 'Gluten Free';
+    case DietaryTag.DAIRY_FREE:
+      return 'Dairy Free';
+    case DietaryTag.VEGETARIAN:
+      return 'Vegetarian';
+    case DietaryTag.PALEO:
+      return 'Paleo';
+    default:
+      return 'Unknown';
+  }
+};
+
+export const formatCalories = (calories: number): string => {
+  return `${calories} kcal`;
+};
+
+export const formatNutrient = (amount: number, type: NutrientType): string => {
+  if (type === NutrientType.CALORIES) {
+    return `${amount} kcal`;
+  }
+  return `${amount}g`;
+};
+
+export const formatMealTime = (time: string): string => {
+  return time;
 };

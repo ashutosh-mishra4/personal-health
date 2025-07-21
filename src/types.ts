@@ -55,3 +55,39 @@ export interface WorkoutQueryTypes {
   workouts: Workout[];
   workout: Workout;
 }
+
+// Diet Plan types
+export interface DietPlanProps {
+  meals: Meal[];
+  nutritionSummary: NutritionSummary;
+  prepList: PrepItem[];
+}
+
+export interface Meal {
+  id: number;
+  name: string;
+  image: string;
+  calories: number;
+  mealType: string;
+  time: string;
+  tags: string[];
+}
+
+export interface NutritionSummary {
+  calories: NutrientProgress;
+  protein: NutrientProgress;
+  carbs: NutrientProgress;
+  fats: NutrientProgress;
+}
+
+export interface NutrientProgress {
+  consumed: number;
+  goal: number;
+}
+
+export interface PrepItem {
+  id: number;
+  item: string;
+  completed: boolean;
+  icon: string;
+}

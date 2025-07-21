@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './src/components/Layout/Layout';
 import DashboardContent from './src/components/DashboardContent/DashboardContent';
 import WorkoutContent from './src/components/WorkoutContent/WorkoutContent';
+import DietPlanPage from './src/components/DietPlanPage/DietPlanPage';
 import { mockRootProps as dashboardMockData } from './src/fitnessDashboardMockData';
 import { mockRootProps as workoutMockData } from './src/workoutMockData';
+import { mockRootProps as dietPlanMockData } from './src/dietPlanMockData';
 import theme from './src/theme';
 
 function App() {
@@ -34,6 +36,16 @@ function App() {
                   currentWorkoutSession={workoutMockData.currentWorkoutSession}
                   filters={workoutMockData.filters}
                   sortOption={workoutMockData.sortOption}
+                />
+              } 
+            />
+            <Route 
+              path="/diet" 
+              element={
+                <DietPlanPage 
+                  meals={dietPlanMockData.meals}
+                  nutritionSummary={dietPlanMockData.nutritionSummary}
+                  prepList={dietPlanMockData.prepList}
                 />
               } 
             />
