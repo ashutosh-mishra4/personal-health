@@ -1,7 +1,6 @@
 import { Stack, Group, Card, Text } from '@mantine/core';
 import ActivityCard from '../ActivityCard/ActivityCard';
 import GoalProgressChart from '../GoalProgressChart/GoalProgressChart';
-import FoodTable from '../FoodTable/FoodTable';
 import classes from './MainContent.module.css';
 
 interface Activity {
@@ -18,25 +17,14 @@ interface GoalProgressData {
   steps: number;
 }
 
-interface FoodEntry {
-  id: number;
-  food: string;
-  meal: string;
-  calories: string;
-  time: string;
-  carbs: string;
-  image: string;
-}
-
 interface MainContentProps {
   activities: Activity[];
   goalProgress: {
     weeklyData: GoalProgressData[];
   };
-  foodEntries: FoodEntry[];
 }
 
-const MainContent = ({ activities, goalProgress, foodEntries }: MainContentProps) => {
+const MainContent = ({ activities, goalProgress }: MainContentProps) => {
   return (
     <Stack gap={24} className={classes.container}>
       {/* Hero Section */}
@@ -63,9 +51,6 @@ const MainContent = ({ activities, goalProgress, foodEntries }: MainContentProps
 
       {/* Goal Progress Chart */}
       <GoalProgressChart data={goalProgress.weeklyData} />
-
-      {/* Food Table */}
-      <FoodTable entries={foodEntries} />
     </Stack>
   );
 };

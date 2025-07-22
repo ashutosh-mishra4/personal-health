@@ -10,6 +10,7 @@ interface MealSectionProps {
   meals: Array<{
     id: number;
     name: string;
+    description: string;
     image: string;
     calories: number;
     time: string;

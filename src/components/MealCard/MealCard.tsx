@@ -7,6 +7,7 @@ interface MealCardProps {
   meal: {
     id: number;
     name: string;
+    description: string;
     image: string;
     calories: number;
     time: string;
@@ -34,6 +35,9 @@ const MealCard = ({ meal, onViewDetails, onReplaceItem }: MealCardProps) => {
             <Stack gap={4}>
               <Text fz={16} fw={600} c="#1e293b">
                 {meal.name}
+              </Text>
+              <Text fz={12} fw={400} c="#64748b" lineClamp={2}>
+                {meal.description}
               </Text>
               <Text fz={12} fw={400} c="#64748b">
                 {meal.time}

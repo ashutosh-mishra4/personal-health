@@ -11,3 +11,7 @@
 .categoryTabs {
   width: 100%;
 }
+
+.categoryTabsButton:hover {
+  background-color: var(--mantine-color-orangeLight-2) !important;
+}

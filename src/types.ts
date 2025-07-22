@@ -66,6 +66,7 @@ export interface DietPlanProps {
 export interface Meal {
   id: number;
   name: string;
+  description: string;
   image: string;
   calories: number;
   mealType: string;
@@ -171,4 +172,64 @@ export interface StreakStoreTypes {
 export interface StreakQueryTypes {
   activityData: DayActivity[];
   streakSummary: StreakSummary;
+}
+
+import { DayOfWeek } from './enums';
+
+// Props types for My Workouts components
+export interface MyWorkoutsProps {
+  weeklyWorkouts: WeeklyWorkouts;
+  onAddWorkout: (workout: WorkoutFormData) => void;
+  onUpdateWorkout: (day: DayOfWeek, workoutId: number, workout: WorkoutFormData) => void;
+  onRemoveWorkout: (day: DayOfWeek, workoutId: number) => void;
+}
+
+export interface WeeklyWorkouts {
+  [key: string]: ScheduledWorkout[];
+}
+
+export interface ScheduledWorkout {
+  id: number;
+  name: string;
+  description: string;
+  type: string;
+  duration: number;
+  difficulty: string;
+  equipment: string[];
+  exercises: Exercise[];
+  status: string;
+}
+
+export interface WorkoutFormData {
+  name: string;
+  description: string;
+  type: string;
+  duration: number;
+  difficulty: string;
+  equipment: string[];
+  exercises: Exercise[];
+  day: string;
+}
+
+export interface AddWorkoutModalProps {
+  opened: boolean;
+  onClose: () => void;
+  onSave: (workout: WorkoutFormData) => void;
+}
+
+export interface UpdateWorkoutModalProps {
+  opened: boolean;
+  onClose: () => void;
+  weeklyWorkouts: WeeklyWorkouts;
+  onRemove: (day: DayOfWeek, workoutId: number) => void;
+  onReplace: (day: DayOfWeek, workoutId: number, workout: WorkoutFormData) => void;
+}
+
+// Props for the enhanced WorkoutPage component
+export interface EnhancedWorkoutPageProps extends WorkoutPageProps {
+  weeklyWorkouts: WeeklyWorkouts;
+  onAddWorkout: (workout: WorkoutFormData) => void;
+  onUpdateWorkout: (day: DayOfWeek, workoutId: number, workout: WorkoutFormData) => void;
+  onRemoveWorkout: (day: DayOfWeek, workoutId: number) => void;
+  currentPage?: string;
 }

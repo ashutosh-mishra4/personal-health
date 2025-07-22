@@ -1,4 +1,5 @@
-import { WorkoutType, DifficultyLevel, EquipmentType, WorkoutStatus } from './enums';
+import { WorkoutType, DifficultyLevel, EquipmentType, WorkoutStatus, DayOfWeek } from './enums';
+import { mockWeeklyWorkouts } from './weeklyWorkoutMockData';
 
 // Data passed as props to the root component
 export const mockRootProps = {
@@ -107,5 +108,15 @@ export const mockRootProps = {
     selectedEquipment: null,
     searchQuery: ""
   },
-  sortOption: "name_asc" as const
+  sortOption: "name_asc" as const,
+  weeklyWorkouts: mockWeeklyWorkouts,
+  onAddWorkout: (workout: any) => {
+    console.log('Add workout:', workout);
+  },
+  onUpdateWorkout: (day: DayOfWeek, workoutId: number, workout: any) => {
+    console.log('Update workout:', { day, workoutId, workout });
+  },
+  onRemoveWorkout: (day: DayOfWeek, workoutId: number) => {
+    console.log('Remove workout:', { day, workoutId });
+  }
 };

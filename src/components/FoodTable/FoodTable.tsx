@@ -4,6 +4,7 @@ import classes from './FoodTable.module.css';
 interface FoodEntry {
   id: number;
   food: string;
+  description?: string;
   meal: string;
   calories: string;
   time: string;
@@ -32,7 +33,14 @@ const FoodTable = ({ entries }: FoodTableProps) => {
             <Group className={classes.rowContent}>
               <Group gap={16} className={classes.foodCell}>
                 <Image src={entry.image} w={32} h={32} radius="xl" />
-                <Text fz={14} fw={700} c="#475569">{entry.food}</Text>
+                <Stack gap={4}>
+                  <Text fz={14} fw={700} c="#475569">{entry.food}</Text>
+                  {entry.description && (
+                    <Text fz={12} fw={400} c="#64748B" lineClamp={1}>
+                      {entry.description}
+                    </Text>
+                  )}
+                </Stack>
               </Group>
               <Text fz={14} fw={500} c="#475569" className={classes.cell}>{entry.meal}</Text>
               <Text fz={14} fw={500} c="#475569" className={classes.cell}>{entry.calories}</Text>

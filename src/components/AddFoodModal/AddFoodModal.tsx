@@ -1,36 +1,30 @@
-import { Modal, Stack, TextInput, NumberInput, Select, MultiSelect, Button, Group } from '@mantine/core';
+import { Modal, Stack, TextInput, NumberInput, MultiSelect, Button, Group, Textarea } from '@mantine/core';
 import { useState } from 'react';
-import { MealType, DietaryTag } from '../../enums';
-import { formatMealType, formatDietaryTag } from '../../stringFormatters';
+import { DietaryTag } from '../../enums';
+import { formatDietaryTag } from '../../stringFormatters';
 
 interface AddFoodModalProps {
   opened: boolean;
   onClose: () => void;
-  mealType?: string;
   onSubmit: (foodData: {
     name: string;
+    description: string;
     calories: number;
-    mealType: string;
     time: string;
     tags: string[];
     image: string;
   }) => void;
 }
 
-const AddFoodModal = ({ opened, onClose, mealType, onSubmit }: AddFoodModalProps) => {
+const AddFoodModal = ({ opened, onClose, onSubmit }: AddFoodModalProps) => {
   const [formData, setFormData] = useState({
     name: '',
+    description: '',
     calories: 0,
-    mealType: mealType || MealType.BREAKFAST,
     time: '',
     tags: [] as string[],
     image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=300&h=200&fit=crop'
   });
-
-  const mealTypeOptions = Object.values(MealType).map(type => ({
-    value: type,
-    label: formatMealType(type)
-  }));
 
   const dietaryTagOptions = Object.values(DietaryTag).map(tag => ({
     value: tag,
@@ -45,8 +39,8 @@ const AddFoodModal = ({ opened, onClose, mealType, onSubmit }: AddFoodModalProps
       });
       setFormData({
         name: '',
+        description: '',
         calories: 0,
-        mealType: mealType || MealType.BREAKFAST,
         time: '',
         tags: [],
         image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=300&h=200&fit=crop'
@@ -72,20 +66,21 @@ const AddFoodModal = ({ opened, onClose, mealType, onSubmit }: AddFoodModalProps
           required
         />
         
+        <Textarea
+          label="Description"
+          placeholder="Enter food description"
+          value={formData.description}
+          onChange={(event) => setFormData({ ...formData, description: event.currentTarget.value })}
+          minRows={2}
+          maxRows={4}
+        />
+        
         <NumberInput
           label="Calories"
           placeholder="Enter calories"
           value={formData.calories}
           onChange={(value) => setFormData({ ...formData, calories: Number(value) || 0 })}
           min={0}
-          required
-        />
-        
-        <Select
-          label="Meal Type"
-          data={mealTypeOptions}
-          value={formData.mealType}
-          onChange={(value) => setFormData({ ...formData, mealType: value || MealType.BREAKFAST })}
           required
         />
         

@@ -22,15 +22,6 @@ interface FitnessDashboardProps {
       steps: number;
     }>;
   };
-  foodEntries: Array<{
-    id: number;
-    food: string;
-    meal: string;
-    calories: string;
-    time: string;
-    carbs: string;
-    image: string;
-  }>;
   schedule: Array<{
     day: string;
     exercise: string;
@@ -55,7 +46,6 @@ interface FitnessDashboardProps {
 const FitnessDashboard = ({ 
   activities, 
   goalProgress, 
-  foodEntries, 
   schedule, 
   goals, 
   premiumOffer
@@ -65,7 +55,6 @@ const FitnessDashboard = ({
       <MainContent 
         activities={activities}
         goalProgress={goalProgress}
-        foodEntries={foodEntries}
       />
       
       <RightPanel 

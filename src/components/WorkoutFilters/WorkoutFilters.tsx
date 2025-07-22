@@ -30,7 +30,7 @@ const WorkoutFilters = ({ filters, sortOption, onFilterChange, onSortChange }: W
           className={classes.searchInput}
           flex={1}
         />
-        
+
         <Select
           placeholder="Sort by"
           value={sortOption}
@@ -53,7 +53,7 @@ const WorkoutFilters = ({ filters, sortOption, onFilterChange, onSortChange }: W
         className={classes.categoryTabs}
       >
         <Tabs.List>
-          <Tabs.Tab value="all">
+          <Tabs.Tab value="all" style={{ '--mantine-color-default-hover': 'var(--mantine-color-orangeLight-7)' }}>
             All Categories
           </Tabs.Tab>
           <Tabs.Tab value="strength" leftSection={workoutTypeIcons.strength}>
@@ -84,7 +84,7 @@ const WorkoutFilters = ({ filters, sortOption, onFilterChange, onSortChange }: W
           clearable
           w={150}
         />
-        
+
         <Select
           placeholder="Equipment"
           value={filters.selectedEquipment}

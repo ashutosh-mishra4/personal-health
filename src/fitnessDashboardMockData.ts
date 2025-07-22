@@ -35,26 +35,6 @@ export const mockRootProps = {
       { day: "Sun", workout: 60, calories: 55, steps: 70 }
     ]
   },
-  foodEntries: [
-    {
-      id: 1,
-      food: "Burrito",
-      meal: "Pizza Burger",
-      calories: "Receiving",
-      time: "01:00 AM",
-      carbs: "20 gm",
-      image: "/images/burrito.png"
-    },
-    {
-      id: 2,
-      food: "Burger",
-      meal: "Pizza Burger", 
-      calories: "Receiving",
-      time: "01:00 AM",
-      carbs: "20 gm",
-      image: "/images/burger.png"
-    }
-  ],
   schedule: [
     {
       day: "Monday",

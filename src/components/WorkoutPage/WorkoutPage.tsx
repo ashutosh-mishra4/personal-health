@@ -4,7 +4,8 @@ import WorkoutFilters from '../WorkoutFilters/WorkoutFilters';
 import WorkoutGrid from '../WorkoutGrid/WorkoutGrid';
 import WorkoutSessionModal from '../WorkoutSessionModal/WorkoutSessionModal';
 import WorkoutRightPanel from '../WorkoutRightPanel/WorkoutRightPanel';
-import { Workout, WorkoutFilters as IWorkoutFilters, WorkoutSession } from '../../types';
+import MyWorkoutsSection from '../MyWorkoutsSection/MyWorkoutsSection';
+import { Workout, WorkoutFilters as IWorkoutFilters, WorkoutSession, EnhancedWorkoutPageProps } from '../../types';
 import { WorkoutType, DifficultyLevel, EquipmentType, WorkoutStatus } from '../../enums';
 import classes from './WorkoutPage.module.css';
 
@@ -16,7 +17,17 @@ interface WorkoutPageProps {
   currentPage?: string;
 }
 
-const WorkoutPage = ({ workouts, currentWorkoutSession, filters: initialFilters, sortOption: initialSortOption, currentPage }: WorkoutPageProps) => {
+const WorkoutPage = ({ 
+  workouts, 
+  currentWorkoutSession, 
+  filters: initialFilters, 
+  sortOption: initialSortOption, 
+  currentPage,
+  weeklyWorkouts,
+  onAddWorkout,
+  onUpdateWorkout,
+  onRemoveWorkout
+}: EnhancedWorkoutPageProps) => {
   const [filters, setFilters] = useState<IWorkoutFilters>(initialFilters);
   const [sortOption, setSortOption] = useState(initialSortOption);
   const [workoutSession, setWorkoutSession] = useState<WorkoutSession | null>(currentWorkoutSession);
@@ -102,6 +113,15 @@ const WorkoutPage = ({ workouts, currentWorkoutSession, filters: initialFilters,
           <Group justify="space-between" align="center">
             <Text fz={24} fw={700} c="#1e293b">Workouts</Text>
           </Group>
+
+          {weeklyWorkouts && onAddWorkout && onUpdateWorkout && onRemoveWorkout && (
+            <MyWorkoutsSection
+              weeklyWorkouts={weeklyWorkouts}
+              onAddWorkout={onAddWorkout}
+              onUpdateWorkout={onUpdateWorkout}
+              onRemoveWorkout={onRemoveWorkout}
+            />
+          )}
           
           <Flex gap={24} align="flex-start">
             <Stack gap={24} flex={1}>

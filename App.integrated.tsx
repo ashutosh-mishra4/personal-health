@@ -12,7 +12,7 @@ import { mockRootProps as dietPlanMockData } from './src/dietPlanMockData';
 import { mockRootProps as goalsMockData } from './src/goalsMockData';
 import { mockRootProps as streaksMockData } from './src/streaksMockData';
 import { Goal } from './src/types';
-import theme from './src/theme';
+import theme, { cssVariablesResolver } from './src/theme';
 
 function App() {
   const handleAddGoal = (category: string) => {
@@ -40,38 +40,38 @@ function App() {
   };
 
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider theme={theme} cssVariablesResolver={cssVariablesResolver}>
       <BrowserRouter>
         <Routes>
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <Layout>
                 <FitnessDashboard {...dashboardMockData} />
               </Layout>
-            } 
+            }
           />
-          <Route 
-            path="/workout" 
+          <Route
+            path="/workout"
             element={
               <Layout>
                 <WorkoutPage {...workoutMockData} />
               </Layout>
-            } 
+            }
           />
-          <Route 
-            path="/diet" 
+          <Route
+            path="/diet"
             element={
               <Layout>
                 <DietPlanPage {...dietPlanMockData} />
               </Layout>
-            } 
+            }
           />
-          <Route 
-            path="/goals" 
+          <Route
+            path="/goals"
             element={
               <Layout>
-                <GoalsPage 
+                <GoalsPage
                   {...goalsMockData}
                   onAddGoal={handleAddGoal}
                   onEditGoal={handleEditGoal}
@@ -79,27 +79,27 @@ function App() {
                   onRemoveGoal={handleRemoveGoal}
                 />
               </Layout>
-            } 
+            }
           />
-          <Route 
-            path="/streaks" 
+          <Route
+            path="/streaks"
             element={
               <Layout>
-                <StreaksPage 
+                <StreaksPage
                   {...streaksMockData}
                   onFilterChange={handleFilterChange}
                   onActivityUpdate={handleActivityUpdate}
                 />
               </Layout>
-            } 
+            }
           />
-          <Route 
-            path="*" 
+          <Route
+            path="*"
             element={
               <Layout>
                 <FitnessDashboard {...dashboardMockData} />
               </Layout>
-            } 
+            }
           />
         </Routes>
       </BrowserRouter>

@@ -41,15 +41,16 @@ const DietPlanPage = ({ meals: initialMeals, nutritionSummary, prepList }: DietP
 
   const handleAddFoodSubmit = (foodData: {
     name: string;
+    description: string;
     calories: number;
-    mealType: string;
     time: string;
     tags: string[];
     image: string;
   }) => {
     const newMeal: Meal = {
       id: Math.max(...meals.map(m => m.id)) + 1,
-      ...foodData
+      ...foodData,
+      mealType: selectedMealType
     };
     setMeals(prev => [...prev, newMeal]);
   };
@@ -111,7 +112,6 @@ const DietPlanPage = ({ meals: initialMeals, nutritionSummary, prepList }: DietP
       <AddFoodModal
         opened={addFoodModalOpened}
         onClose={() => setAddFoodModalOpened(false)}
-        mealType={selectedMealType}
         onSubmit={handleAddFoodSubmit}
       />
 

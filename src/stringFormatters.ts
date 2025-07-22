@@ -1,4 +1,4 @@
-import { WorkoutType, DifficultyLevel, EquipmentType, MealType, DietaryTag, NutrientType, GoalCategory, GoalPriority, GoalStatus, GoalFrequency, StreakType, ActivityLevel } from './enums';
+import { WorkoutType, DifficultyLevel, EquipmentType, MealType, DietaryTag, NutrientType, GoalCategory, GoalPriority, GoalStatus, GoalFrequency, StreakType, ActivityLevel, DayOfWeek } from './enums';
 
 export const formatDuration = (minutes: number): string => {
   if (minutes < 60) {
@@ -297,4 +297,26 @@ export const calculateStreaks = (activityData: any[], filterType: string) => {
     longestStreak,
     missedDaysThisMonth
   };
+};
+
+// Format day of week for display
+export const formatDayOfWeek = (day: DayOfWeek): string => {
+  switch (day) {
+    case DayOfWeek.MONDAY:
+      return 'Monday';
+    case DayOfWeek.TUESDAY:
+      return 'Tuesday';
+    case DayOfWeek.WEDNESDAY:
+      return 'Wednesday';
+    case DayOfWeek.THURSDAY:
+      return 'Thursday';
+    case DayOfWeek.FRIDAY:
+      return 'Friday';
+    case DayOfWeek.SATURDAY:
+      return 'Saturday';
+    case DayOfWeek.SUNDAY:
+      return 'Sunday';
+    default:
+      return 'Unknown';
+  }
 };
