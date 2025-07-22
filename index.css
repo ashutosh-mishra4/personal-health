@@ -11,6 +11,12 @@
 
 #root {
   margin: auto;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+body {
+  background-color: #f8fafc;
 }
 
 /* IMPORTANT: Do not add any CSS reset rules to this file. */

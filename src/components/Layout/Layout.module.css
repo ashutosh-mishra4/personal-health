@@ -4,5 +4,10 @@
 }
 
 .main {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 88px);
+}
+
+.main {
   padding: 24px;
 }
