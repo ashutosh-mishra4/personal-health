@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Stack, Group, Button, TextInput, NumberInput, Text, ActionIcon, Paper } from '@mantine/core';
 import { Plus, Trash2 } from 'lucide-react';
 import { Exercise } from '../../types';
+import classes from './ExerciseForm.module.css';
 
 interface ExerciseFormProps {
   exercises: Exercise[];
@@ -35,15 +36,15 @@ const ExerciseForm = ({ exercises, onAddExercise, onRemoveExercise }: ExerciseFo
 
   const isExerciseValid = () => {
     return exerciseForm.name.trim() !== '' &&
-           exerciseForm.sets > 0 &&
-           exerciseForm.reps > 0 &&
-           exerciseForm.restTime >= 0;
+      exerciseForm.sets > 0 &&
+      exerciseForm.reps > 0 &&
+      exerciseForm.restTime >= 0;
   };
 
   return (
     <Stack gap={16}>
       <Text fw={500} fz="sm">Exercises</Text>
-      
+
       {exercises.length > 0 && (
         <Stack gap={8}>
           {exercises.map((exercise, index) => (
@@ -71,7 +72,7 @@ const ExerciseForm = ({ exercises, onAddExercise, onRemoveExercise }: ExerciseFo
       <Paper p="md" withBorder>
         <Stack gap={12}>
           <Text fw={500} fz="sm">Add Exercise</Text>
-          
+
           <TextInput
             label="Exercise Name"
             placeholder="Enter exercise name"
@@ -119,6 +120,7 @@ const ExerciseForm = ({ exercises, onAddExercise, onRemoveExercise }: ExerciseFo
             variant="light"
             color="orange"
             fullWidth
+            className={classes.addButton}
           >
             Add Exercise
           </Button>

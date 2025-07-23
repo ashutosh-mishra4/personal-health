@@ -1,4 +1,4 @@
-import { createTheme, colorsTuple, CSSVariablesResolver } from '@mantine/core';
+import { createTheme, colorsTuple } from '@mantine/core';
 
 const theme = createTheme({
   colors: {
@@ -22,21 +22,6 @@ const theme = createTheme({
     sm: '0px 4px 22px rgba(159, 159, 159, 0.15)',
     md: '0px 5px 22px 4px rgba(0, 0, 0, 0.02), 0px 12px 17px 2px rgba(0, 0, 0, 0.03)'
   }
-});
-
-export const cssVariablesResolver: CSSVariablesResolver = (theme) => ({
-  variables: {
-    '--tab-bg': 'red',
-    '--tab-hover-color': 'red',
-  },
-  light: {
-    '--tab-bg': theme.colors.orangeLight[7],
-    '--tab-hover-color': 'red',
-  },
-  dark: {
-    '--tab-bg': theme.colors.orangeLight[7],
-    '--tab-hover-color': 'red',
-  },
 });
 
 export default theme;

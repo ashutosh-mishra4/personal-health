@@ -1,0 +1,18 @@
+.addButton {
+  /* Normal button styles can be added here if needed */
+}
+
+.addButton:disabled,
+.addButton[data-disabled] {
+  background-color: #f8f9fa !important; /* Very light gray background */
+  color: #6c757d !important; /* Medium gray text */
+  border-color: #e9ecef !important; /* Light gray border */
+  opacity: 0.8; /* Slightly transparent to indicate disabled state */
+}
+
+.addButton:disabled:hover,
+.addButton[data-disabled]:hover {
+  background-color: #f8f9fa !important; /* Maintain same color on hover */
+  transform: none !important; /* Disable hover animations */
+  box-shadow: none !important; /* Remove hover shadows */
+} 

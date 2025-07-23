@@ -65,14 +65,6 @@ const DayWorkoutCard = ({ day, workouts }: DayWorkoutCardProps) => {
                   <Group gap={6} justify="flex-start" wrap="wrap">
                     <Badge 
                       size="sm" 
-                      variant="light" 
-                      color={getWorkoutTypeColor(workout.type)}
-                      className={classes.typeBadge}
-                    >
-                      {formatWorkoutType(workout.type as any)}
-                    </Badge>
-                    <Badge 
-                      size="sm" 
                       variant="outline" 
                       color={getDifficultyColor(workout.difficulty)}
                       className={classes.difficultyBadge}
@@ -84,9 +76,6 @@ const DayWorkoutCard = ({ day, workouts }: DayWorkoutCardProps) => {
                   <Group gap={8} justify="space-between" align="center">
                     <Text fz="xs" c="dimmed" className={classes.duration}>
                       {formatDuration(workout.duration)}
-                    </Text>
-                    <Text fz="xs" c="dimmed" className={classes.equipment}>
-                      {formatEquipment(workout.equipment as any)}
                     </Text>
                   </Group>
 

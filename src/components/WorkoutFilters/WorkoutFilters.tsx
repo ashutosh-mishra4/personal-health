@@ -44,6 +44,9 @@ const WorkoutFilters = ({ filters, sortOption, onFilterChange, onSortChange }: W
             { value: 'difficulty_desc', label: 'Difficulty (Hard)' }
           ]}
           w={200}
+          classNames={{
+            option: classes.hoverColor
+          }}
         />
       </Group>
 
@@ -53,19 +56,19 @@ const WorkoutFilters = ({ filters, sortOption, onFilterChange, onSortChange }: W
         className={classes.categoryTabs}
       >
         <Tabs.List>
-          <Tabs.Tab value="all" style={{ '--mantine-color-default-hover': 'var(--mantine-color-orangeLight-7)' }}>
+          <Tabs.Tab value="all" className={classes.hoverColor}>
             All Categories
           </Tabs.Tab>
-          <Tabs.Tab value="strength" leftSection={workoutTypeIcons.strength}>
+          <Tabs.Tab value="strength" leftSection={workoutTypeIcons.strength} className={classes.hoverColor}>
             Strength
           </Tabs.Tab>
-          <Tabs.Tab value="cardio" leftSection={workoutTypeIcons.cardio}>
+          <Tabs.Tab value="cardio" leftSection={workoutTypeIcons.cardio} className={classes.hoverColor}>
             Cardio
           </Tabs.Tab>
-          <Tabs.Tab value="yoga" leftSection={workoutTypeIcons.yoga}>
+          <Tabs.Tab value="yoga" leftSection={workoutTypeIcons.yoga} className={classes.hoverColor}>
             Yoga
           </Tabs.Tab>
-          <Tabs.Tab value="stretch" leftSection={workoutTypeIcons.stretch}>
+          <Tabs.Tab value="stretch" leftSection={workoutTypeIcons.stretch} className={classes.hoverColor}>
             Stretch
           </Tabs.Tab>
         </Tabs.List>
@@ -83,6 +86,9 @@ const WorkoutFilters = ({ filters, sortOption, onFilterChange, onSortChange }: W
           ]}
           clearable
           w={150}
+          classNames={{
+            option: classes.hoverColor
+          }}
         />
 
         <Select
@@ -99,6 +105,9 @@ const WorkoutFilters = ({ filters, sortOption, onFilterChange, onSortChange }: W
           ]}
           clearable
           w={180}
+          classNames={{
+            option: classes.hoverColor
+          }}
         />
       </Group>
     </Paper>

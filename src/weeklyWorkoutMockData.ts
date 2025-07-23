@@ -5,7 +5,7 @@ export const mockWeeklyWorkouts = {
   [DayOfWeek.MONDAY]: [
     {
       id: 101,
-      name: "Morning Strength Training",
+      name: "Strength Training",
       description: "Full body strength workout to start the week",
       type: WorkoutType.STRENGTH,
       duration: 45,
@@ -54,7 +54,7 @@ export const mockWeeklyWorkouts = {
   [DayOfWeek.FRIDAY]: [
     {
       id: 104,
-      name: "Upper Body Focus",
+      name: "Upper Body",
       description: "Targeted upper body strength training",
       type: WorkoutType.STRENGTH,
       duration: 40,

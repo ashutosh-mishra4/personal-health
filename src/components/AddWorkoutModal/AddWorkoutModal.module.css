@@ -1,0 +1,37 @@
+.saveButton {
+  /* Normal button styles can be added here if needed */
+}
+
+.saveButton:disabled,
+.saveButton[data-disabled] {
+  background-color: #f8f9fa !important; /* Very light gray background */
+  color: #6c757d !important; /* Medium gray text */
+  border-color: #e9ecef !important; /* Light gray border */
+  opacity: 0.8; /* Slightly transparent to indicate disabled state */
+}
+
+.saveButton:disabled:hover,
+.saveButton[data-disabled]:hover {
+  background-color: #f8f9fa !important; /* Maintain same color on hover */
+  transform: none !important; /* Disable hover animations */
+  box-shadow: none !important; /* Remove hover shadows */
+}
+
+/* Remove hover background from close button */
+.closeButton {
+  background-color: transparent !important;
+}
+
+.closeButton:hover {
+  background-color: transparent !important;
+}
+
+/* Equipment multi-select selected pills styling */
+.equipmentPill {
+  background-color: var(--mantine-color-orange-6) !important;
+  color: white !important;
+}
+
+.equipmentPill:hover {
+  background-color: var(--mantine-color-orange-7) !important;
+} 

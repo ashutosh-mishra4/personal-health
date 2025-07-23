@@ -12,6 +12,6 @@
   width: 100%;
 }
 
-.categoryTabsButton:hover {
+.hoverColor:hover {
   background-color: var(--mantine-color-orangeLight-2) !important;
 }

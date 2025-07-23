@@ -4,6 +4,7 @@ import { X, Trash2, Edit } from 'lucide-react';
 import { UpdateWorkoutModalProps, WorkoutFormData } from '../../types';
 import { DayOfWeek } from '../../enums';
 import { formatDayOfWeek, formatDuration, formatWorkoutType, formatDifficultyLevel } from '../../stringFormatters';
+import workoutFiltersClasses from '../WorkoutFilters/WorkoutFilters.module.css';
 
 const UpdateWorkoutModal = ({ opened, onClose, weeklyWorkouts, onRemove, onReplace }: UpdateWorkoutModalProps) => {
   const [selectedDay, setSelectedDay] = useState<string>(DayOfWeek.MONDAY);
@@ -33,13 +34,23 @@ const UpdateWorkoutModal = ({ opened, onClose, weeklyWorkouts, onRemove, onRepla
       onClose={onClose}
       title="Update Workouts"
       size="lg"
-      closeButtonProps={{ icon: <X size={16} /> }}
+      closeButtonProps={{
+        icon: <X size={16} />,
+        variant: 'transparent',
+        styles: {
+          root: {
+            '&:hover': {
+              backgroundColor: 'transparent'
+            }
+          }
+        }
+      }}
     >
       <Stack gap={16}>
         <Tabs value={selectedDay} onChange={(value) => setSelectedDay(value || DayOfWeek.MONDAY)}>
           <Tabs.List>
             {daysOfWeek.map((day) => (
-              <Tabs.Tab key={day} value={day}>
+              <Tabs.Tab key={day} value={day} className={workoutFiltersClasses.hoverColor}>
                 {formatDayOfWeek(day).slice(0, 3)}
               </Tabs.Tab>
             ))}
@@ -51,7 +62,7 @@ const UpdateWorkoutModal = ({ opened, onClose, weeklyWorkouts, onRemove, onRepla
                 <Text fw={500} fz="sm">
                   {formatDayOfWeek(day)} Workouts
                 </Text>
-                
+
                 {(!weeklyWorkouts[day] || weeklyWorkouts[day].length === 0) ? (
                   <Paper p="md" withBorder>
                     <Text fz="sm" c="dimmed" ta="center">
@@ -82,7 +93,7 @@ const UpdateWorkoutModal = ({ opened, onClose, weeklyWorkouts, onRemove, onRepla
                               </Text>
                             </Group>
                           </div>
-                          
+
                           <Group gap={8}>
                             <Button
                               size="compact-xs"

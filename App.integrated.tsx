@@ -12,7 +12,7 @@ import { mockRootProps as dietPlanMockData } from './src/dietPlanMockData';
 import { mockRootProps as goalsMockData } from './src/goalsMockData';
 import { mockRootProps as streaksMockData } from './src/streaksMockData';
 import { Goal } from './src/types';
-import theme, { cssVariablesResolver } from './src/theme';
+import theme from './src/theme';
 
 function App() {
   const handleAddGoal = (category: string) => {
@@ -40,7 +40,7 @@ function App() {
   };
 
   return (
-    <MantineProvider theme={theme} cssVariablesResolver={cssVariablesResolver}>
+    <MantineProvider theme={theme}>
       <BrowserRouter>
         <Routes>
           <Route

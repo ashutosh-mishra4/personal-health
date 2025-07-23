@@ -5,6 +5,9 @@ import { AddWorkoutModalProps, WorkoutFormData, Exercise } from '../../types';
 import { DayOfWeek, WorkoutType, DifficultyLevel, EquipmentType } from '../../enums';
 import { formatDayOfWeek, formatWorkoutType, formatDifficultyLevel, formatEquipment } from '../../stringFormatters';
 import ExerciseForm from '../ExerciseForm/ExerciseForm';
+import workoutFiltersClasses from '../WorkoutFilters/WorkoutFilters.module.css';
+import classes from './AddWorkoutModal.module.css';
+
 
 const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
   const [formData, setFormData] = useState<WorkoutFormData>({
@@ -64,12 +67,12 @@ const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
 
   const isFormValid = () => {
     return formData.name.trim() !== '' &&
-           formData.description.trim() !== '' &&
-           formData.type !== '' &&
-           formData.difficulty !== '' &&
-           formData.day !== '' &&
-           formData.duration > 0 &&
-           exercises.length > 0;
+      formData.description.trim() !== '' &&
+      formData.type !== '' &&
+      formData.difficulty !== '' &&
+      formData.day !== '' &&
+      formData.duration > 0 &&
+      exercises.length > 0;
   };
 
   const dayOptions = Object.values(DayOfWeek).map(day => ({
@@ -98,7 +101,10 @@ const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
       onClose={handleClose}
       title="Add Workout"
       size="lg"
-      closeButtonProps={{ icon: <X size={16} /> }}
+      closeButtonProps={{
+        icon: <X size={16} />,
+        className: classes.closeButton
+      }}
     >
       <Stack gap={16}>
         <Select
@@ -109,6 +115,9 @@ const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
           onChange={(value) => handleInputChange('day', value)}
           leftSection={<Calendar size={16} />}
           required
+          classNames={{
+            option: workoutFiltersClasses.hoverColor
+          }}
         />
 
         <TextInput
@@ -136,6 +145,9 @@ const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
             value={formData.type}
             onChange={(value) => handleInputChange('type', value)}
             required
+            classNames={{
+              option: workoutFiltersClasses.hoverColor
+            }}
           />
 
           <NumberInput
@@ -157,6 +169,9 @@ const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
             value={formData.difficulty}
             onChange={(value) => handleInputChange('difficulty', value)}
             required
+            classNames={{
+              option: workoutFiltersClasses.hoverColor
+            }}
           />
 
           <MultiSelect
@@ -165,6 +180,10 @@ const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
             data={equipmentOptions}
             value={formData.equipment}
             onChange={(value) => handleInputChange('equipment', value)}
+            classNames={{
+              option: workoutFiltersClasses.hoverColor,
+              pill: classes.equipmentPill
+            }}
           />
         </Group>
 
@@ -182,6 +201,7 @@ const AddWorkoutModal = ({ opened, onClose, onSave }: AddWorkoutModalProps) => {
             onClick={handleSave}
             disabled={!isFormValid()}
             color="orange"
+            className={classes.saveButton}
           >
             Save Workout
           </Button>

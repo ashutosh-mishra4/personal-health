@@ -52,16 +52,6 @@ const SuggestedWorkoutCard = ({ workout, onStartWorkout }: SuggestedWorkoutCardP
             {workout.name}
           </Text>
           
-          <Group gap={8}>
-            <Badge 
-              variant="light" 
-              color="blue"
-              size="sm"
-              leftSection={getWorkoutIcon(workout.type)}
-            >
-              {formatWorkoutType(workout.type as WorkoutType)}
-            </Badge>
-          </Group>
 
           <Group gap={12}>
             <Group gap={4}>

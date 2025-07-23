@@ -120,15 +120,6 @@ const WorkoutCard = ({
           >
             {formatDifficultyLevel(workout.difficulty as DifficultyLevel)}
           </Badge>
-          
-          <Badge 
-            variant="light" 
-            color="blue"
-            size="sm"
-            leftSection={getWorkoutIcon(workout.type)}
-          >
-            {formatWorkoutType(workout.type as WorkoutType)}
-          </Badge>
 
           {workout.status !== WorkoutStatus.NOT_STARTED && (
             <Badge 
@@ -150,10 +141,6 @@ const WorkoutCard = ({
               {formatDuration(workout.duration)}
             </Text>
           </Group>
-          
-          <Text fz={12} c="#64748b">
-            {formatEquipment(workout.equipment as any[])}
-          </Text>
         </Group>
 
 
