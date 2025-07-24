@@ -36,12 +36,9 @@ const UpdateWorkoutModal = ({ opened, onClose, weeklyWorkouts, onRemove, onRepla
       size="lg"
       closeButtonProps={{
         icon: <X size={16} />,
-        variant: 'transparent',
-        styles: {
-          root: {
-            '&:hover': {
-              backgroundColor: 'transparent'
-            }
+        style: {
+          '&:hover': {
+            backgroundColor: 'transparent'
           }
         }
       }}
